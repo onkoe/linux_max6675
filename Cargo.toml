@@ -13,7 +13,7 @@ categories = [
     "science",
     "science::robotics",
 ]
-keywords = ["max6675", "linux max6675", "spi max6675"]
+keywords = ["max6675"]
 readme = "README.md"
 exclude = [".github"]
 
