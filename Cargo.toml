@@ -1,0 +1,28 @@
+[package]
+name = "linux_max6675"
+description = "A library that reads temperature data from a MAX6675 over the Linux kernel's SPI API."
+authors = ["Barrett Ray <contact@barretts.club>"]
+license = "MIT"
+repository = "https://github.com/onkoe/linux_max6675"
+version = "0.1.0"
+edition = "2021"
+categories = [
+    "os::linux-apis",
+    "os",
+    "embedded",
+    "science",
+    "science::robotics",
+]
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+spidev = "0.6.0"
+thiserror = "1.0.50"
+
+[dev-dependencies]
+anyhow = "1.0.75"
+approx_eq = "0.1.8"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
