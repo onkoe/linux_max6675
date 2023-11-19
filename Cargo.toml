@@ -8,11 +8,12 @@ version = "0.1.0"
 edition = "2021"
 categories = [
     "os::linux-apis",
-    "os",
+    "hardware-support",
     "embedded",
     "science",
     "science::robotics",
 ]
+keywords = ["max6675", "linux max6675", "spi max6675"]
 readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
