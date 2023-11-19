@@ -10,16 +10,18 @@
 //! Then, you can use something like this example in your binary...
 //!
 //! ```no_run
-//! use linux_max6675::Max6675;
-//! use std::time::Duration;
+//! fn main() -> anyhow::Result<()> {
+//!     use linux_max6675::Max6675;
+//!     use std::time::Duration;
 //!
-//! let mut max = Max6675::new("/dev/spidev0.0")?;
+//!     let mut max = Max6675::new("/dev/spidev0.0")?;
 //!
-//! std::thread::sleep(Duration::from_secs(3));
+//!     std::thread::sleep(Duration::from_secs(3));
 //!
-//! loop {
-//!     println!("Read Celsius! Got: {}° C.", max.read_celsius()?.into_inner());
-//!     std::thread::sleep(Duration::from_millis(500));
+//!     loop {
+//!         println!("Read Celsius! Got: {}° C.", max.read_celsius()?.into_inner());
+//!         std::thread::sleep(Duration::from_millis(500));
+//!     }
 //! }
 //! ```
 
