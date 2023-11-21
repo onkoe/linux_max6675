@@ -24,7 +24,7 @@ fn main() -> anyhow::Result<()> {
     loop {
         tracing::info!(
             "Read Celsius! Got: {}° C.",
-            max.read_celsius()?.into_inner()
+            max.read_celsius()?
         );
 
         // you might want to sleep so you don't get double readings. feel free to play with this, though!

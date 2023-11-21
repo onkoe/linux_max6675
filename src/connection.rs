@@ -47,7 +47,6 @@ impl Connection {
         }
 
         // ripped from the Arduino library (see: https://github.com/RobTillaart/MAX6675)
-        // TODO: sanity check..?
         let temp = ((raw >> 3) & 0x1FFF) as f64 * 0.25_f64;
         Ok(temp)
     }

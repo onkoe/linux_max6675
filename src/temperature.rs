@@ -40,6 +40,12 @@ impl Temperature {
     }
 }
 
+impl std::fmt::Display for Temperature {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "({})", self.into_inner())
+    }
+}
+
 // we can't go from an f64 to a temperature of unknown type... :p
 #[allow(clippy::from_over_into)]
 impl Into<f64> for Temperature {
@@ -112,5 +118,13 @@ mod test {
         let ice_k = 273.15_f64;
 
         test_all!(ice_f, ice_c, ice_k);
+    }
+
+    #[test]
+    #[should_panic]
+    fn zeroes() {
+        let (zero_f, zero_c, zero_k) = (0_f64, 0_f64, 0_f64);
+
+        test_all!(zero_f, zero_c, zero_k);
     }
 }

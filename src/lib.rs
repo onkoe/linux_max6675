@@ -19,7 +19,7 @@
 //!     std::thread::sleep(Duration::from_secs(3));
 //!
 //!     loop {
-//!         println!("Read Celsius! Got: {}° C.", max.read_celsius()?.into_inner());
+//!         println!("Read Celsius! Got: {}° C.", max.read_celsius()?);
 //!         std::thread::sleep(Duration::from_millis(500));
 //!     }
 //! }
