@@ -1,3 +1,11 @@
+//! # Temperature
+//!
+//! A collection of tools to easily represent different temperatures units and
+//! convert between them.
+//!
+//! I found it weird that these don't exist already... at least not on the
+//! first page of a web search!
+
 /// A representation of some common temperature unit.
 #[derive(Clone, Debug, PartialEq)]
 pub enum Temperature {

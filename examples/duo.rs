@@ -22,10 +22,7 @@ fn main() -> anyhow::Result<()> {
     std::thread::sleep(Duration::from_secs(3));
 
     loop {
-        tracing::info!(
-            "Read Celsius! Got: {}° C.",
-            max.read_celsius()?
-        );
+        tracing::info!("Read Celsius! Got: {}° C.", max.read_celsius()?);
 
         // you might want to sleep so you don't get double readings. feel free to play with this, though!
         std::thread::sleep(Duration::from_millis(500));

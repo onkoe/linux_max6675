@@ -1,3 +1,7 @@
+//! # Connection
+//!
+//! An internal module that deals with SPI beyond the user-facing interface.
+
 use std::io::Read;
 
 use spidev::{SpiModeFlags, Spidev, SpidevOptions};
@@ -12,6 +16,8 @@ pub struct Connection {
 }
 
 impl Connection {
+    /// Tries to create a new `Connection`.
+    /// Only fails if there's something wrong with the SPI connection.
     pub(crate) fn new(spi_path: impl AsRef<str>) -> Result<Self, Max6675Error> {
         let mut spi = Spidev::open(spi_path.as_ref())?;
 
@@ -29,12 +35,15 @@ impl Connection {
         })
     }
 
+    /// Tries to get two bytes of temperature data from the MAX6675.
     pub(crate) fn read_raw(&mut self) -> Result<[u8; 2], Max6675Error> {
         self.spi.read_exact(&mut self.data)?;
 
         Ok(self.data)
     }
 
+    /// Tries to grab temperature data from MAX6675 and convert the results
+    /// to an `f64` in degrees Celsius.
     pub(crate) fn read_as_celsius(&mut self) -> Result<f64, Max6675Error> {
         self.read_raw()?;
 
