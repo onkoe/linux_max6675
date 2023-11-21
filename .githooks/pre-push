@@ -3,22 +3,24 @@
 # Prevent push if any of these commands fail
 set -e
 
-echo "Running cargo semver-checks..."
+echo "Before pushing to origin, let's run some pre-push checks..."
+
+echo "Checking for semver violations..."
 cargo semver-checks || exit 1
 
 echo "Running cargo clippy..."
 cargo clippy -- -D warnings || exit 1
 
-echo "Generating documentation..."
+echo "Ensuring documentation generates correctly..."
 cargo doc --no-deps || exit 1
 
-echo "Checking code compilation..."
+echo "Checking if code compiles..."
 cargo check || exit 1
 
-echo "Checking code formatting..."
+echo "Checking is code is formatted..."
 cargo fmt -- --check || exit 1
 
 echo "Running tests..."
 cargo test || exit 1
 
-echo "All checks passed!"
+echo "All checks passed! Carry on!"
