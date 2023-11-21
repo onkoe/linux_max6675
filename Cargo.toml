@@ -15,7 +15,7 @@ categories = [
 ]
 keywords = ["max6675", "spi"]
 readme = "README.md"
-exclude = [".github"]
+exclude = [".github", ".githooks", ".gitignore", "deny.toml", "Cargo.lock"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
