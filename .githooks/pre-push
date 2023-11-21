@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Prevent push if any of these commands fail
+set -e
+
+echo "Running cargo semver-checks..."
+cargo semver-checks || exit 1
+
+echo "Running cargo clippy..."
+cargo clippy -- -D warnings || exit 1
+
+echo "Generating documentation..."
+cargo doc --no-deps || exit 1
+
+echo "Checking code compilation..."
+cargo check || exit 1
+
+echo "Checking code formatting..."
+cargo fmt -- --check || exit 1
+
+echo "Running tests..."
+cargo test || exit 1
+
+echo "All checks passed!"
