@@ -26,11 +26,11 @@
 //! ```
 
 use connection::Connection;
-use temperature::Temperature;
 use thiserror::Error;
 
 pub mod connection;
-pub mod temperature;
+
+pub use simmer::Temperature;
 
 /// An error emitted due to problems with the MAX6675.
 #[derive(Debug, Error)]
