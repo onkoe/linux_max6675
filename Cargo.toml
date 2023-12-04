@@ -4,7 +4,7 @@ description = "A library that reads temperature data from a MAX6675 over the Lin
 authors = ["Barrett Ray <contact@barretts.club>"]
 license = "MIT"
 repository = "https://github.com/onkoe/linux_max6675"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 categories = [
     "os::linux-apis",
