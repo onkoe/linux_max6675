@@ -58,11 +58,9 @@ jobs:
         run: cargo test --verbose
 
       - name: Install cargo-deny
-        run: |
-          if ! command -v cargo-deny &> /dev/null
-          then
-              cargo binstall cargo-deny
-          fi
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-deny
 
       - name: Run cargo-deny
         run: cargo deny check
