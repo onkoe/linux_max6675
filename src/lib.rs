@@ -35,7 +35,7 @@ pub use simmer::Temperature;
 /// An error emitted due to problems with the MAX6675.
 #[derive(Debug, Error)]
 pub enum Max6675Error {
-    #[error("We couldn't connect to the provided SPI path. See std::io::Error: {source}")]
+    #[error("Couldn't connect to the provided SPI path. See std::io::Error: {source}")]
     IoError {
         #[from]
         source: std::io::Error,
