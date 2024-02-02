@@ -61,7 +61,7 @@ jobs:
         run: |
           if ! command -v cargo-deny &> /dev/null
           then
-              cargo install cargo-deny
+              cargo binstall cargo-deny
           fi
 
       - name: Run cargo-deny
